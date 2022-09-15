@@ -6,7 +6,7 @@ I currently work at [Aldi](https://aldi.us), a large international grocery chain
 None of my work contributions show here.
 
 
-![My GitHub stats](https://github-readme-stats.vercel.app/api?username=wesamjabali&count_private=true&show_icons=true&theme=vue)
+![My GitHub stats](https://github-readme-stats.vercel.app/api?username=wesamjabali&count_private=true&show_icons=true&theme=github_dark)
 <!--
 **wesamjabali/wesamjabali** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
