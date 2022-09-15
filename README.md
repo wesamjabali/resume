@@ -1,4 +1,10 @@
-### Hi there 👋
+## Hey there 👋 
+I'm Wesam Jabali, a fullstack developer and [Depaul University](https://depaul.edu) graduate.
+
+I currently work at [Aldi](https://aldi.us), a large international grocery chain.
+
+None of my work contributions show here.
+
 
 ![My GitHub stats](https://github-readme-stats.vercel.app/api?username=wesamjabali&count_private=true&show_icons=true&theme=vue)
 <!--
