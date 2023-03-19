@@ -19,14 +19,9 @@ const useLinks = (): SplitSectionProps => {
     },
   ];
 
-  const formattedLinks = links.map((link) => ({
-    ...link,
-    header: `${link.header} ↗`,
-  }));
-
   return {
     title: "Links",
-    info: formattedLinks,
+    info: links,
   };
 };
 

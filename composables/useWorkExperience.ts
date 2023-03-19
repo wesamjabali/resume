@@ -53,7 +53,7 @@ The results were presented to other scientists and financial supporters.`,
   ];
 
   const formattedJobs = jobs.map((job) => ({
-    header: `${job.position} - ${job.company} ↗`,
+    header: `${job.position} - ${job.company}`,
     headerUrl: job.headerUrl,
     description: job.description,
     left: `${job.startDate} - ${job.endDate}`,

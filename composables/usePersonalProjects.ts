@@ -21,7 +21,6 @@ const usePersonalProjects = (): SplitSectionProps => {
 
   const formattedProjects = projects.map((project) => ({
     ...project,
-    header: `${project.header} ↗`,
     footer: formatTechnologies(project.technologies),
   }));
 
