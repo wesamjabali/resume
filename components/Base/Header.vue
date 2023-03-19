@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="header__avatar" height="70" :src="imgSrc" :alt="imgAlt" />
+    <img class="header__avatar" height="84" :src="imgSrc" :alt="imgAlt" />
     <div class="header__content">
       <h1 class="header__title">{{ title }}</h1>
       <p class="header__tagline">{{ tagline }}</p>
@@ -22,6 +22,10 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   &__avatar {
     border-radius: 50%;
     margin-right: 1rem;
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   &__content {
@@ -37,12 +41,12 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   }
 
   &__tagline {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-color-dark);
   }
 
   &__url {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-color-darker);
   }
 }
