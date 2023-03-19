@@ -9,7 +9,7 @@
   display: flex;
   background-color: var(--background-color);
   flex-direction: column;
-  max-width: 28rem;
+  max-width: 32rem;
   margin: auto;
   padding: 3rem 1rem 0 1rem;
 }

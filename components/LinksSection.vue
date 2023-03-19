@@ -23,6 +23,8 @@ const { title, links } = useLinks();
     display: flex;
     flex-direction: row;
     margin-bottom: 0.25rem;
+    gap: 0.25rem;
+
     &-name {
       width: 30%;
       color: var(--text-color-darker);

@@ -19,7 +19,18 @@ const useWorkExperience = () => {
       startDate: "2019",
       endDate: "2021",
     },
+    {
+      company: "Depaul University",
+      companyUrl: "https://depaul.edu/",
+      position: "Student",
+      description:
+        "Graduated Summa Cum Laude at DePaul University, and created automation tools used by thousands of students and faculty to facilitate courses during the COVID-19 pandemic.",
+      technologies: ["3.94 GPA", "Computer Science"],
+      startDate: "2017",
+      endDate: "2021",
+    },
   ];
+
   const technologiesSeparator = " • ";
 
   const formattedJobs = jobs.map((job) => ({

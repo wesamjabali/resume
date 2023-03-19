@@ -33,6 +33,7 @@ const { title, jobs } = useWorkExperience();
   &--job {
     display: flex;
     flex-direction: row;
+    gap: 0.25rem;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;

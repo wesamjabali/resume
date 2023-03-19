@@ -32,7 +32,7 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   }
 
   &__title {
-    line-height: 1.25rem;
+    line-height: 1.5rem;
     font-size: 1.2rem;
   }
 

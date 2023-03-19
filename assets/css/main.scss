@@ -37,7 +37,7 @@ body {
   font-family: "SF Pro", "Inter", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -46,6 +46,7 @@ body {
 }
 
 :root {
+  font-size: 16px;
   --background-color: #000;
   --text-color: #fff;
   --text-color-dark: rgba(255, 255, 255, 0.64);
