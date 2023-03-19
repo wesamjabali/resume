@@ -1,30 +1,32 @@
-const useLinks = () => {
+import { SplitSectionProps } from "~~/components/SplitSection/SplitSection.types";
+
+const useLinks = (): SplitSectionProps => {
   const links = [
     {
-      name: "Github",
-      href: "https://github.com/wesamjabali",
-      urlDisplay: "@wesamjabali",
+      left: "Github",
+      headerUrl: "https://github.com/wesamjabali",
+      header: "@wesamjabali",
     },
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/wesamjabali/",
-      urlDisplay: "Wesam Jabali",
+      left: "LinkedIn",
+      headerUrl: "https://www.linkedin.com/in/wesamjabali/",
+      header: "Wesam Jabali",
     },
     {
-      name: "Email",
-      href: "mailto:wesamjabali@icloud.com",
-      urlDisplay: "wesamjabali@icloud.com",
+      left: "Email",
+      headerUrl: "mailto:wesamjabali@icloud.com",
+      header: "wesamjabali@icloud.com",
     },
   ];
 
   const formattedLinks = links.map((link) => ({
     ...link,
-    urlDisplay: `${link.urlDisplay} ↗`,
+    header: `${link.header} ↗`,
   }));
 
   return {
     title: "Links",
-    links: formattedLinks,
+    info: formattedLinks,
   };
 };
 

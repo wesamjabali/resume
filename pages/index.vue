@@ -3,13 +3,18 @@
     <BaseHeader />
     <div class="sections">
       <AboutSection />
-      <WorkExperienceSection />
-      <LinksSection />
+      <SplitSection :info="workExperience.info" :title="workExperience.title" />
+      <SplitSection :title="projects.title" :info="projects.info" />
+      <SplitSection :title="links.title" :info="links.info" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const workExperience = useWorkExperience();
+const links = useLinks();
+const projects = usePersonalProjects();
+</script>
 
 <style lang="scss">
 .index-page {
