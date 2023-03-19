@@ -37,12 +37,12 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   }
 
   &__tagline {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-color-dark);
   }
 
   &__url {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-color-darker);
   }
 }

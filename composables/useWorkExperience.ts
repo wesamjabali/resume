@@ -1,5 +1,13 @@
 const useWorkExperience = () => {
-  const jobs = [
+  const jobs: Array<{
+    company: string;
+    companyUrl: string;
+    position: string;
+    description: string;
+    technologies: string[];
+    startDate: string;
+    endDate: string;
+  }> = [
     {
       company: "ALDI",
       companyUrl: "https://new.aldi.us/",
@@ -15,9 +23,20 @@ const useWorkExperience = () => {
       position: "Software Developer",
       description:
         "Created battery hardware products for the budding personal electric vehicle industry.",
-      technologies: ["Vue", "Nuxt", "TypeScript", "Arduino", "C", "Hardware"],
+      technologies: ["Vue", "Nuxt", "TypeScript", "Arduino", "C"],
       startDate: "2019",
       endDate: "2021",
+    },
+    {
+      company: "Lewis University",
+      companyUrl: "https://lewisu.edu/",
+      position: "Research Assistant",
+      description: `Analysed C. elegans somatic nervous system development using machine learning to predict each neuron's function. \
+The algorithm was able to predict correctly with 81% accuracy. \
+The results were presented to other scientists and financial supporters.`,
+      technologies: ["Python", "Pandas", "Numpy"],
+      startDate: "2019",
+      endDate: "2020",
     },
     {
       company: "Depaul University",
