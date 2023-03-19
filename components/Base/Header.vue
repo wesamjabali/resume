@@ -4,7 +4,7 @@
     <div class="header__content">
       <h1 class="header__title">{{ title }}</h1>
       <p class="header__tagline">{{ tagline }}</p>
-      <a class="header__tagline" :href="urlHref">{{ urlDisplay }}</a>
+      <a class="header__url" :href="urlHref">{{ urlDisplay }}</a>
     </div>
   </div>
 </template>
@@ -33,11 +33,17 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 
   &__title {
     line-height: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   &__tagline {
+    font-size: 0.8rem;
     color: var(--text-color-dark);
+  }
+
+  &__url {
+    font-size: 0.8rem;
+    color: var(--text-color-darker);
   }
 }
 </style>
