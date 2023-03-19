@@ -1,12 +1,4 @@
 html {
-  @font-face {
-    font-family: "SF Pro";
-    src: url("../fonts/SF-Pro.ttf");
-  }
-  @font-face {
-    font-family: "Inter";
-    src: url("../fonts/Inter.ttf");
-  }
   text-rendering: optimizeLegibility;
 }
 
@@ -37,8 +29,8 @@ a {
 }
 
 body {
-  font-family: "SF Pro", "Inter", -apple-system, system-ui, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
