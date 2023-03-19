@@ -2,6 +2,15 @@
 export default defineNuxtConfig({
   ssr: false,
   css: ["~/assets/css/main.scss"],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/assets/css/variables.scss";`,
+        },
+      },
+    },
+  },
   app: {
     head: {
       title: "Wesam Jabali",

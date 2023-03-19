@@ -19,6 +19,7 @@ const props = defineProps<{ title: string }>();
 
   &__title {
     width: 100%;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 

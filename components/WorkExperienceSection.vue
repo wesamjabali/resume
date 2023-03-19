@@ -33,19 +33,30 @@ const { title, jobs } = useWorkExperience();
   &--job {
     display: flex;
     flex-direction: row;
-    gap: 0.25rem;
+    flex-wrap: wrap;
+
+    @include above-mobile {
+      flex-wrap: nowrap;
+    }
 
     &:not(:last-child) {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
     }
 
     &-dates {
-      width: 30%;
+      width: 100%;
+      @include above-mobile {
+        width: 30%;
+      }
+
       color: var(--text-color-darker);
     }
 
     &-info {
-      width: 70%;
+      width: 100%;
+      @include above-mobile {
+        width: 70%;
+      }
       display: flex;
       flex-direction: column;
       align-items: flex-start;

@@ -1,0 +1,12 @@
+:root {
+  --background-color: #000;
+  --text-color: #fff;
+  --text-color-dark: rgba(255, 255, 255, 0.64);
+  --text-color-darker: rgba(255, 255, 255, 0.5);
+}
+
+@mixin above-mobile {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
