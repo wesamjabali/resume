@@ -13,14 +13,14 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Wesam Jabali",
+      title: "Wesam Jabali - Fullstack Developer",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           hid: "description",
           name: "description",
-          content: "Wesam Jabali's personal website",
+          content: "Wesam Jabali's Resume",
         },
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
