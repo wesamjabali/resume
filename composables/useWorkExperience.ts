@@ -14,7 +14,7 @@ const useWorkExperience = () => {
       companyUrl: "https://chibatterysystems.com/",
       position: "Software Developer",
       description:
-        "Creating and building battery hardware products for the budding personal electric vehicle industry.",
+        "Created battery hardware products for the budding personal electric vehicle industry.",
       technologies: ["Vue", "Nuxt", "TypeScript", "Arduino", "C", "Hardware"],
       startDate: "2019",
       endDate: "2021",
