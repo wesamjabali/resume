@@ -1,9 +1,9 @@
 <template>
   <div class="default-layout">
-    <a v-if="isTemplate" href="https://wesamjabali.com" class="author-banner"
-      >Made by wesam</a
-    >
     <router-view />
+    <a v-if="isTemplate" href="https://wesamjabali.com" class="author-banner">
+      Made by wesam
+    </a>
   </div>
 </template>
 
