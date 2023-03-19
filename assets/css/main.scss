@@ -20,6 +20,14 @@ button {
   all: unset;
 }
 
+* {
+  @media print {
+    font-size: 12px !important;
+    color: #000 !important;
+    background-color: #fff !important;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

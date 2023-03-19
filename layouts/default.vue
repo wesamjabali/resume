@@ -12,5 +12,10 @@
   max-width: 32rem;
   margin: auto;
   padding: 2rem 1rem 2rem 1rem;
+
+  @media print {
+    max-width: 80%;
+    padding: 0;
+  }
 }
 </style>

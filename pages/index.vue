@@ -1,15 +1,21 @@
 <template>
-  <BaseHeader />
-  <div class="sections">
-    <AboutSection />
-    <WorkExperienceSection />
-    <LinksSection />
+  <div class="index-page">
+    <BaseHeader />
+    <div class="sections">
+      <AboutSection />
+      <WorkExperienceSection />
+      <LinksSection />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss">
+.index-page {
+  padding-top: 3rem;
+}
+
 .sections {
   display: flex;
   flex-direction: column;
