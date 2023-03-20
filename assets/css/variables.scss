@@ -3,6 +3,12 @@
   --text-color: #fff;
   --text-color-dark: rgba(255, 255, 255, 0.64);
   --text-color-darker: rgba(255, 255, 255, 0.5);
+  @media (prefers-color-scheme: light) {
+    --background-color: #fff;
+    --text-color: #000;
+    --text-color-dark: rgba(0, 0, 0, 0.64);
+    --text-color-darker: rgba(0, 0, 0, 0.5);
+  }
 }
 
 @mixin above-mobile {
