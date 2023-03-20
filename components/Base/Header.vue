@@ -20,14 +20,20 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   align-items: center;
 
   &__avatar {
+    filter: grayscale(100%);
+    transition: all 0.2s ease;
     border-radius: 50%;
     margin-right: 1rem;
+    width: 98px;
+    height: 98px;
+
     @media print {
       display: none;
     }
 
     &:hover {
       scale: 1.1;
+      filter: unset;
     }
   }
 
@@ -35,7 +41,8 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    line-height: 1rem;
+    line-height: 1.25rem;
+
     @media print {
       align-items: center;
       font-size: 2rem !important;
@@ -45,7 +52,7 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   }
 
   &__title {
-    line-height: 1.5rem;
+    line-height: 1.6rem;
     font-size: 1.25rem;
     @media print {
       font-size: 2rem !important;
@@ -61,6 +68,9 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   &__url {
     font-size: 0.9rem;
     color: var(--text-color-darker);
+    &::after {
+      content: "";
+    }
   }
 }
 </style>
