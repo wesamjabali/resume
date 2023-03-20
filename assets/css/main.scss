@@ -37,6 +37,11 @@ a {
   &::after {
     content: " ↗";
   }
+  @media print {
+    &::after {
+      content: "";
+    }
+  }
 }
 
 body {
