@@ -20,7 +20,6 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   align-items: center;
 
   &__avatar {
-    filter: grayscale(100%);
     transition: all 0.2s ease;
     border-radius: 50%;
     margin-right: 1rem;
@@ -33,7 +32,6 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 
     &:hover {
       scale: 1.1;
-      filter: unset;
     }
   }
 
