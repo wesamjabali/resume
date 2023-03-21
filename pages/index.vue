@@ -3,9 +3,12 @@
     <BaseHeader />
     <div class="sections">
       <AboutSection />
-      <SplitSection :title="workExperience.title" :info="workExperience.info" />
-      <SplitSection :title="projects.title" :info="projects.info" />
-      <SplitSection
+      <BaseSplitSection
+        :title="workExperience.title"
+        :info="workExperience.info"
+      />
+      <BaseSplitSection :title="projects.title" :info="projects.info" />
+      <BaseSplitSection
         class="print-hide"
         :title="links.title"
         :info="links.info"

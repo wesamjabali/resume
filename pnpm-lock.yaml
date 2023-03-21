@@ -1,9 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  i: ^0.3.7
   nuxt: ^3.3.1
-  pnpm: ^7.29.3
   prettier: ^2.8.4
   sass: ^1.59.3
   sass-loader: ^13.2.1
@@ -13,9 +11,7 @@ dependencies:
   sass-loader: 13.2.1_sass@1.59.3
 
 devDependencies:
-  i: 0.3.7
   nuxt: 3.3.1_sass@1.59.3
-  pnpm: 7.29.3
   prettier: 2.8.4
 
 packages:
@@ -2624,11 +2620,6 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /i/0.3.7:
-    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
-    engines: {node: '>=0.4'}
-    dev: true
-
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -3529,12 +3520,6 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.2.0
       pathe: 1.1.0
-    dev: true
-
-  /pnpm/7.29.3:
-    resolution: {integrity: sha512-w4tVG3ZV1txgM2bp9/XMmqSYYO3qdhyMVdU8S0zegVvfB6SxNL+nxRq5t7hhw+yc+GrKegyZuIp9aWPhy6NNMA==}
-    engines: {node: '>=14.6'}
-    hasBin: true
     dev: true
 
   /postcss-calc/8.2.4_postcss@8.4.21:

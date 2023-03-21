@@ -1,4 +1,5 @@
-import { SplitSectionProps } from "~~/components/SplitSection/SplitSection.types";
+import { SplitSectionProps } from "../components/Base/SplitSection/SplitSection.types";
+import { formatTechnologies } from "../utils/formatTechnologies.util";
 
 const usePersonalProjects = (): SplitSectionProps => {
   const projects = [
