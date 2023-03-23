@@ -65,6 +65,28 @@ const floatAvatar = () => {
 </script>
 
 <style lang="scss">
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.1);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -76,13 +98,14 @@ const floatAvatar = () => {
     border-radius: 50%;
     width: 98px;
     height: 98px;
+    animation: breathe 1.5s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @media print {
       display: none;
-    }
-
-    &:hover {
-      scale: 1.1;
     }
   }
 
