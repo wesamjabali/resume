@@ -21,18 +21,44 @@
 const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 
 const avatar = ref<HTMLElement | null>(null);
+
 const resetAvatar = () => {
   if (!avatar.value) return;
   avatar.value.style.transform = "unset";
 };
+
+const leftOffset = ref(0);
+
+const onResize = () => {
+  if (!avatar.value) return;
+  let offset = 0;
+  let element = avatar.value;
+  while (element) {
+    offset += element.offsetLeft;
+    element = element.offsetParent as HTMLElement;
+  }
+  leftOffset.value = offset;
+};
+
+onMounted(() => {
+  onResize();
+  window.addEventListener("resize", onResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", onResize);
+});
 
 let resetAvatarTimer = setTimeout(resetAvatar, 1500);
 
 const floatAvatar = () => {
   if (!avatar.value) return;
   clearTimeout(resetAvatarTimer);
-  const x = Math.max(Math.random() * (window.innerWidth - 196), -48);
-  const y = Math.max(Math.random() * (window.innerHeight - 196), -48);
+  const x =
+    Math.random() *
+      (window.innerWidth - leftOffset.value - 98 + leftOffset.value) -
+    leftOffset.value;
+  const y = Math.random() * (window.innerHeight - 196 - 98) + 98;
   avatar.value.style.transform = `translate(${x}px, ${y}px)`;
   resetAvatarTimer = setTimeout(resetAvatar, 1500);
 };
