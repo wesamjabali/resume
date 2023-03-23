@@ -1,6 +1,14 @@
 <template>
   <div class="header">
-    <img class="header__avatar" height="98" :src="imgSrc" :alt="imgAlt" />
+    <img
+      class="header__avatar"
+      ref="avatar"
+      height="98"
+      :src="imgSrc"
+      :alt="imgAlt"
+      @mouseenter="floatAvatar"
+      @click="floatAvatar"
+    />
     <div class="header__content">
       <h1 class="header__title">{{ title }}</h1>
       <p class="header__tagline">{{ tagline }}</p>
@@ -11,6 +19,23 @@
 
 <script setup lang="ts">
 const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
+
+const avatar = ref<HTMLElement | null>(null);
+const resetAvatar = () => {
+  if (!avatar.value) return;
+  avatar.value.style.transform = "unset";
+};
+
+let resetAvatarTimer = setTimeout(resetAvatar, 1500);
+
+const floatAvatar = () => {
+  if (!avatar.value) return;
+  clearTimeout(resetAvatarTimer);
+  const x = Math.max(Math.random() * (window.innerWidth - 196), -48);
+  const y = Math.max(Math.random() * (window.innerHeight - 196), -48);
+  avatar.value.style.transform = `translate(${x}px, ${y}px)`;
+  resetAvatarTimer = setTimeout(resetAvatar, 1500);
+};
 </script>
 
 <style lang="scss">
@@ -20,9 +45,9 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
   align-items: center;
 
   &__avatar {
-    transition: all 0.2s ease;
+    position: relative;
+    transition: all 1s ease;
     border-radius: 50%;
-    margin-right: 1rem;
     width: 98px;
     height: 98px;
 
@@ -40,11 +65,12 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
     flex-direction: column;
     align-items: flex-start;
     line-height: 1.25rem;
-
+    margin-left: 1rem;
     @media print {
       align-items: center;
       font-size: 2rem !important;
       margin-bottom: 1rem;
+      margin-left: 0;
       width: 100%;
     }
   }
