@@ -21,6 +21,7 @@
 const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 
 const avatar = ref<HTMLElement | null>(null);
+const allowFloat = ref(false);
 
 const resetAvatar = () => {
   if (!avatar.value) return;
@@ -43,6 +44,14 @@ const onResize = () => {
 onMounted(() => {
   onResize();
   window.addEventListener("resize", onResize);
+  if (!avatar.value) return;
+
+  const avatarBreatheMs = 900;
+
+  avatar.value.style.animation = `breathe ${avatarBreatheMs}ms ease`;
+  setTimeout(() => {
+    allowFloat.value = true;
+  }, avatarBreatheMs + 1);
 });
 
 onUnmounted(() => {
@@ -52,7 +61,7 @@ onUnmounted(() => {
 let resetAvatarTimer = setTimeout(resetAvatar, 1500);
 
 const floatAvatar = () => {
-  if (!avatar.value) return;
+  if (!avatar.value || !allowFloat.value) return;
   clearTimeout(resetAvatarTimer);
   const x =
     Math.random() *
@@ -98,7 +107,6 @@ const floatAvatar = () => {
     border-radius: 50%;
     width: 98px;
     height: 98px;
-    animation: breathe 1.5s ease;
 
     &:hover {
       cursor: pointer;
