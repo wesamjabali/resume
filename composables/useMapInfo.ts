@@ -8,7 +8,7 @@ const useMapInfo = () => {
     pinImgSrc:
       "https://github.com/wesamjabali/resume/blob/main/public/images/avatar.jpg?raw=true",
     pinImgAlt: "Wesam's avatar pin",
-    hoverMessage: "I'm currently in Chicago 👀",
+    hoverMessage: "Chicago born and raised 👀",
   };
 };
 

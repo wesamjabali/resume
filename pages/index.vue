@@ -1,5 +1,5 @@
 <template>
-  <div class="index-page">
+  <div class="index-page" ref="index">
     <BaseHeader />
     <div class="index-page__sections">
       <AboutSection />
@@ -23,6 +23,37 @@
 const workExperience = useWorkExperience();
 const links = useLinks();
 const projects = usePersonalProjects();
+
+const index = ref<HTMLElement | null>(null);
+const leftMargin = ref("0");
+
+const resizeMap = () => {
+  const newValue = `-${
+    (window.innerWidth - (index.value?.offsetWidth ?? 0)) / 2
+  }px`;
+
+  leftMargin.value = newValue;
+};
+
+/* Resize debouncing logic */
+const resizeDebounceDelayMs = 100;
+let resizeTimeout = setTimeout(() => {}, 0);
+
+const debouncedOnResize = () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    resizeMap();
+  }, resizeDebounceDelayMs);
+};
+
+onMounted(() => {
+  resizeMap();
+  window.addEventListener("resize", debouncedOnResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", debouncedOnResize);
+});
 </script>
 
 <style lang="scss">
@@ -39,7 +70,12 @@ const projects = usePersonalProjects();
 
   &__map {
     height: 15rem;
-    width: 100%;
+
+    .map-container {
+      position: relative;
+      left: v-bind(leftMargin);
+      width: 100vw;
+    }
   }
 }
 </style>
