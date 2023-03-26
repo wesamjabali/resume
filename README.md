@@ -1,39 +1,47 @@
-## Hey there 👋
+## Resume Template
 
-I'm Wesam Jabali, a fullstack developer and [Depaul University](https://depaul.edu) graduate.
+<p align="center">
+Made with: <a href="http://nuxt.com/" target="blank"><img src="https://nuxt.com/assets/design-kit/logo/full-logo-green-dark.svg" width="320" alt="Nuxt Logo" /></a>
+</p>
 
-I currently work at [Aldi](https://aldi.us), a large international grocery chain.
+[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
+[travis-url]: https://travis-ci.org/nestjs/nest
+[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
+[linux-url]: https://travis-ci.org/nestjs/nest
 
-None of my work contributions show here.
-<div align="center">
-  <a  style="display: block; width: 100%;" href="https://linkedin.com/in/wesamjabali">
-		<img src="https://github-readme-stats.vercel.app/api?username=wesamjabali&count_private=true&show_icons=true&theme=github_dark&hide=contribs&hide_rank=true&hide_title=true" alt="wesam's github stats" />
-	</a>
-</div>
+<p align="center">
+  <a href="https://www.npmjs.com/~nuxt"><img src="https://img.shields.io/npm/v/@nuxt/core.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/~nuxt"><img src="https://img.shields.io/npm/l/@nuxt/core.svg" alt="Package License" /></a>
+  <a href="https://www.npmjs.com/~nuxt∂"><img src="https://img.shields.io/npm/dm/@nuxt/core.svg" alt="NPM Downloads" /></a>
+</p>
 
-<br />
+## Description
 
-<div align="center">
-  <a  href="https://linkedin.com/in/wesamjabali">
-		<img src="https://brand.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" width="100px" alt="linked in" />
-  </a>
-</div>
- 
+A resume template site - minimal and printable. See an exmaple of use at [wesamjabali.com](https://wesamjabali.com)
 
+## How to use
 
+1. Fork
 
+   1. Click **Fork** button in github
+   2. `git clone git@github.com:YOUR_GIT_NAME/resume.git`
+   3. `cd resume`
+   4. `yarn`
 
-<!--
-**wesamjabali/wesamjabali** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+2. Install pnpm and install dependencies
 
-Here are some ideas to get you started:
+   1. `npm install -g pnpm` / ([Other methods](https://pnpm.io/installation))
+   2. `pnpm i`
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+3. Start in dev mode
+
+   1. `pnpm run dev`
+
+## How to edit info
+
+1. Go to the `composables/` directory
+2. Edit objects returned there, and the website will automatically update in dev mode
+
+### Depoloying the app
+
+You can deploy this app in [Netlify](https://netlify.com) or [Vercel](https://vercel.com) with no special configuration. It's okay to use `npm run build` as your build command in their pipeline.
