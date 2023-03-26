@@ -53,7 +53,7 @@ const floatAvatar = async () => {
   avatar.value.style.transform = `translate(${x}px, ${y}px)`;
   avatar.value.style.transitionDuration = `${Math.max(
     (avatarFloatMs /= 1.1),
-    60
+    100
   )}ms`;
 
   if (clickCount.value > 30) {
