@@ -46,8 +46,9 @@ watch(
   left: 0;
   width: 100%;
   height: 100%;
+  backdrop-filter: blur(3px);
 
-  background-color: var(--text-color-darker);
+  background-color: var(--modal-overlay-color);
   display: flex;
   flex-direction: column;
   align-items: center;
