@@ -39,8 +39,8 @@ const projects = usePersonalProjects();
 
   &__map {
     position: relative;
-    width: 110vw;
-    transform: translateX(-25%);
+    width: 105vw;
+    transform: translateX(-40vw);
     height: 15rem;
   }
 }
