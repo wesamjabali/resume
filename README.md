@@ -4,11 +4,6 @@
 Made with: <a href="http://nuxt.com/" target="blank"><img src="https://nuxt.com/assets/design-kit/logo/full-logo-green-dark.svg" width="320" alt="Nuxt Logo" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-
 <p align="center">
   <a href="https://www.npmjs.com/~nuxt"><img src="https://img.shields.io/npm/v/@nuxt/core.svg" alt="NPM Version" /></a>
   <a href="https://www.npmjs.com/~nuxt"><img src="https://img.shields.io/npm/l/@nuxt/core.svg" alt="Package License" /></a>
