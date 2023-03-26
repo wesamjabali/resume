@@ -1,14 +1,16 @@
 <template>
   <div class="header">
-    <img
-      class="header__avatar"
-      ref="avatar"
-      height="98"
-      :src="imgSrc"
-      :alt="imgAlt"
-      @mouseenter="floatAvatar"
-      @click="floatAvatar"
-    />
+    <div class="header__avatar">
+      {{ clickCount }}
+      <img
+        height="98"
+        :src="imgSrc"
+        :alt="imgAlt"
+        ref="avatar"
+        @click.self="floatAvatar"
+        @dragenter="floatAvatar"
+      />
+    </div>
     <div class="header__content">
       <h1 class="header__title">{{ title }}</h1>
       <p class="header__tagline">{{ tagline }}</p>
@@ -23,15 +25,17 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 const avatar = ref<HTMLElement | null>(null);
 const leftOffset = ref(0);
 let avatarFloatMs = 1200;
+const clickCount = ref(0);
 
 const resetAvatar = () => {
   if (!avatar.value) return;
+  clickCount.value = 0;
   avatarFloatMs = 1200;
   avatar.value.style.transition = `all ${avatarFloatMs}ms ease`;
   avatar.value.style.transform = "unset";
 };
 
-let resetAvatarTimer = setTimeout(resetAvatar, 1500);
+let resetAvatarTimer = setTimeout(resetAvatar, 2000);
 
 const floatAvatar = async () => {
   if (!avatar.value) return;
@@ -49,6 +53,7 @@ const floatAvatar = async () => {
   avatar.value.style.transform = `translate(${x}px, ${y}px)`;
   avatar.value.style.transitionDuration = `${(avatarFloatMs /= 1.1)}ms`;
 
+  clickCount.value++;
   resetAvatarTimer = setTimeout(resetAvatar, 1500);
 };
 
@@ -97,9 +102,13 @@ onUnmounted(() => {
     transition: all 1s ease-out;
     animation: jump 600ms linear;
     animation-delay: 200ms;
-    border-radius: 50%;
     width: 98px;
     height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.5rem;
 
     &:hover {
       cursor: pointer;
@@ -107,6 +116,11 @@ onUnmounted(() => {
 
     @media print {
       display: none;
+    }
+
+    img {
+      position: absolute;
+      border-radius: 100%;
     }
   }
 
