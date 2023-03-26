@@ -22,13 +22,31 @@ const { title, tagline, urlHref, urlDisplay, imgSrc, imgAlt } = useHeaderInfo();
 
 const avatar = ref<HTMLElement | null>(null);
 const allowFloat = ref(false);
+const leftOffset = ref(0);
+let avatarFloatMs = 1000;
 
 const resetAvatar = () => {
   if (!avatar.value) return;
+  avatarFloatMs = 1000;
+  avatar.value.style.transition = `all ${avatarFloatMs}ms ease`;
   avatar.value.style.transform = "unset";
 };
 
-const leftOffset = ref(0);
+let resetAvatarTimer = setTimeout(resetAvatar, 1500);
+
+const floatAvatar = () => {
+  if (!avatar.value || !allowFloat.value) return;
+  clearTimeout(resetAvatarTimer);
+  const x =
+    Math.random() *
+      (window.innerWidth - leftOffset.value - 98 + leftOffset.value) -
+    leftOffset.value -
+    10;
+  const y = Math.random() * (window.innerHeight - 196 - 98) + 98;
+  avatar.value.style.transform = `translate(${x}px, ${y}px)`;
+  avatar.value.style.transition = `all ${(avatarFloatMs /= 1.1)}ms ease`;
+  resetAvatarTimer = setTimeout(resetAvatar, 1500);
+};
 
 const onResize = () => {
   if (!avatar.value) return;
@@ -57,20 +75,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", onResize);
 });
-
-let resetAvatarTimer = setTimeout(resetAvatar, 1500);
-
-const floatAvatar = () => {
-  if (!avatar.value || !allowFloat.value) return;
-  clearTimeout(resetAvatarTimer);
-  const x =
-    Math.random() *
-      (window.innerWidth - leftOffset.value - 98 + leftOffset.value) -
-    leftOffset.value;
-  const y = Math.random() * (window.innerHeight - 196 - 98) + 98;
-  avatar.value.style.transform = `translate(${x}px, ${y}px)`;
-  resetAvatarTimer = setTimeout(resetAvatar, 1500);
-};
 </script>
 
 <style lang="scss">
