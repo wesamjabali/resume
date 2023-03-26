@@ -1,9 +1,11 @@
 <template>
-  <div class="default-layout">
-    <router-view />
-    <a v-if="isTemplate" href="https://wesamjabali.com" class="author-banner">
-      Made by wesam
-    </a>
+  <div class="layout-wrapper">
+    <div class="default-layout">
+      <router-view />
+      <a v-if="isTemplate" href="https://wesamjabali.com" class="author-banner">
+        Made by wesam
+      </a>
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,10 @@ const isTemplate = !useAboutInfo().description.includes("Wesam");
 </script>
 
 <style lang="scss">
+.layout-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
 .default-layout {
   display: flex;
   background-color: var(--background-color);

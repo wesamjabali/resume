@@ -5,7 +5,7 @@ const useHeaderInfo = () => {
     urlHref: "mailto:wesamjabali@icloud.com",
     urlDisplay: "wesamjabali@icloud.com",
     imgSrc:
-      "https://raw.githubusercontent.com/wesamjabali/resume/main/public/images/avatar.png",
+      "https://raw.githubusercontent.com/wesamjabali/resume/main/public/images/avatar.jpg",
     imgAlt: "Avatar of Wesam Jabali",
   };
 };

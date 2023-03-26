@@ -1,7 +1,7 @@
 <template>
   <div class="index-page">
     <BaseHeader />
-    <div class="sections">
+    <div class="index-page__sections">
       <AboutSection />
       <BaseSplitSection
         :title="workExperience.title"
@@ -9,6 +9,7 @@
       />
       <EducationSection />
       <BaseSplitSection :title="projects.title" :info="projects.info" />
+      <BaseMap class="index-page__map" />
       <BaseSplitSection
         class="print-hide"
         :title="links.title"
@@ -27,13 +28,20 @@ const projects = usePersonalProjects();
 <style lang="scss">
 .index-page {
   padding-top: 3rem;
-}
 
-.sections {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  &__sections {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  &__map {
+    position: relative;
+    width: 110vw;
+    transform: translateX(-25%);
+    height: 15rem;
+  }
 }
 </style>
