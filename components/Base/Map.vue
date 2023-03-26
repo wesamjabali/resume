@@ -110,7 +110,7 @@ onMounted(() => {
     color: var(--text-color);
     width: max-content;
     height: max-content;
-    max-width: 10rem;
+    max-width: 15rem;
 
     transition: all 0.2s ease;
     opacity: 0;
