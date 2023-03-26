@@ -4,6 +4,22 @@ import { formatTechnologies } from "../utils/formatTechnologies.util";
 const usePersonalProjects = (): SplitSectionProps => {
   const projects = [
     {
+      left: "present",
+      headerUrl: "https://assemblycore.com",
+      description:
+        "Quality Control software which helps small American manufacturers to optimize their processes.",
+      header: "AssemblyCore",
+      technologies: ["GraphQL", "TypeScript", "Vue", "AWS", "Docker"],
+    },
+    {
+      left: "2023",
+      headerUrl: "https://github.com/wesamjabali/resume",
+      description:
+        "A minimal resume template website built with Vue - responsive and printable.",
+      header: "Resume Template",
+      technologies: ["Vue", "TypeScript"],
+    },
+    {
       left: "2021",
       headerUrl: "https://github.com/wesamjabali/bluedaemon-v2",
       description:
@@ -16,6 +32,7 @@ const usePersonalProjects = (): SplitSectionProps => {
         "Express",
         "Prisma",
         "Docker",
+        "AWS",
       ],
     },
   ];
