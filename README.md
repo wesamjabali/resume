@@ -21,7 +21,6 @@ A resume template site - minimal and printable. See an exmaple of use at [wesamj
    1. Click **Fork** button in github
    2. `git clone git@github.com:YOUR_GIT_NAME/resume.git`
    3. `cd resume`
-   4. `yarn`
 
 2. Install pnpm and install dependencies
 
