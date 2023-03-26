@@ -35,7 +35,7 @@ const resetAvatar = () => {
   avatar.value.style.transform = "unset";
 };
 
-let resetAvatarTimer = setTimeout(resetAvatar, 2000);
+let resetAvatarTimer = setTimeout(resetAvatar, 1600);
 
 const floatAvatar = async () => {
   if (!avatar.value) return;
