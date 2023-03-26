@@ -1,12 +1,20 @@
 <template>
   <Transition name="modal">
-    <div v-if="props.show" class="modal" @click.self="emit('close')">
+    <div
+      v-if="props.show"
+      class="modal"
+      @click.self="emit('close')"
+      ref="modal"
+    >
       <div class="modal__inner">
         <div class="modal__top">
-          <div class="modal__top--title">{{ props.title }}</div>
+          <div class="modal__top--title">
+            {{ props.title }}
+          </div>
           <button
             class="modal__top--button modal__top--button-close"
             @click="emit('close')"
+            ref="closeButton"
           >
             <span>x</span>
           </button>
@@ -33,13 +41,44 @@ const props = defineProps({
     default: "",
   },
 });
+const focusableElements =
+  'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+const modal = ref<HTMLElement | null>(null);
+const firstFocusableElement = computed(
+  () => modal.value?.querySelectorAll<HTMLElement>(focusableElements)[0]
+);
+
+const lastFocusableElement = computed(
+  () =>
+    modal.value?.querySelectorAll<HTMLElement>(focusableElements)[
+      modal.value?.querySelectorAll(focusableElements).length - 1
+    ]
+);
+
+const onTab = (e: KeyboardEvent) => {
+  if (e.key === "Tab") {
+    e.preventDefault();
+    if (e.shiftKey && document.activeElement === firstFocusableElement.value) {
+      lastFocusableElement.value?.focus();
+    } else if (document.activeElement === lastFocusableElement.value) {
+      firstFocusableElement.value?.focus();
+    } else {
+      firstFocusableElement.value?.focus();
+    }
+  }
+};
 
 watch(
   () => props.show,
   (shown) => {
-    shown
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
+    if (shown) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", onTab);
+    } else {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("keydown", onTab);
+    }
   }
 );
 </script>
@@ -148,6 +187,7 @@ watch(
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
       padding: 1rem 2rem;
+      z-index: 101;
 
       @include above-mobile {
         padding: 0.5rem 1.5rem;
@@ -162,7 +202,8 @@ watch(
       }
 
       &-close {
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: red;
         }
       }

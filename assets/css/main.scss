@@ -44,6 +44,11 @@ button {
       content: "";
     }
   }
+  &:focus {
+    outline: none;
+    border: 1px solid var(--text-highlight-color);
+    border-radius: 0.2rem;
+  }
 }
 
 body {

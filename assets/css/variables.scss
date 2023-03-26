@@ -3,6 +3,7 @@
   --background-color-secondary: rgba(0, 0, 0, 0.5);
   --modal-overlay-color: rgba(255, 255, 255, 0.2);
   --text-color: #fff;
+  --text-highlight-color: #ff0;
   --text-color-dark: rgba(255, 255, 255, 0.64);
   --text-color-darker: rgba(255, 255, 255, 0.5);
   @media (prefers-color-scheme: light) {
@@ -10,6 +11,7 @@
     --background-color-secondary: rgba(255, 255, 255, 0.6);
     --modal-overlay-color: rgba(0, 0, 0, 0.5);
     --text-color: #000;
+    --text-highlight-color: #00f;
     --text-color-dark: rgba(0, 0, 0, 0.64);
     --text-color-darker: rgba(0, 0, 0, 0.5);
   }
