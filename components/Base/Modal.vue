@@ -46,9 +46,8 @@ watch(
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(3px);
-
   background-color: var(--modal-overlay-color);
+  backdrop-filter: blur(3px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +73,7 @@ watch(
 
     @include above-mobile {
       .modal__inner {
-        transform: unset;
+        transform: scaleY(0);
       }
     }
   }
@@ -92,6 +91,9 @@ watch(
     border-width: 0 0.25rem 0.25rem 0.25rem;
     border-radius: 0.25rem;
     background-color: var(--background-color-secondary);
+    & > * {
+      background-color: var(--background-color-secondary);
+    }
   }
 
   &__content {
@@ -99,7 +101,6 @@ watch(
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color-secondary);
 
     &-inner {
       overflow-y: auto;
@@ -118,7 +119,6 @@ watch(
     justify-content: flex-end;
     flex-direction: row;
     width: 100%;
-    background-color: var(--background-color-secondary);
 
     & > :last-child {
       border-radius: 0 0.25rem 0 0;
