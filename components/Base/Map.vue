@@ -42,6 +42,7 @@ onMounted(() => {
         }),
       }),
     ],
+    controls: [],
     view: new View({
       center: fromLonLat([centerLongitude, centerLatitude]),
       maxZoom: zoom,
