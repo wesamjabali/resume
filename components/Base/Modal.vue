@@ -3,6 +3,7 @@
     <div v-if="props.show" class="modal" @click.self="emit('close')">
       <div class="modal__inner">
         <div class="modal__top">
+          <div class="modal__top--title">{{ props.title }}</div>
           <button
             class="modal__top--button modal__top--button-close"
             @click="emit('close')"
@@ -26,6 +27,10 @@ const props = defineProps({
   show: {
     type: Boolean,
     default: false,
+  },
+  title: {
+    type: String,
+    default: "",
   },
 });
 
@@ -54,6 +59,10 @@ watch(
   justify-content: flex-end;
   z-index: 100;
 
+  @include above-mobile {
+    justify-content: center;
+  }
+
   &-enter-active,
   &-leave-active {
     transition: all 0.2s ease-in-out;
@@ -68,18 +77,16 @@ watch(
     opacity: 0;
 
     .modal__inner {
+      opacity: 1;
       transform: translateY(100vh);
     }
 
     @include above-mobile {
       .modal__inner {
-        transform: scaleY(0);
+        opacity: 1;
+        transform: unset;
       }
     }
-  }
-
-  @include above-mobile {
-    justify-content: center;
   }
 
   &__inner {
@@ -115,8 +122,10 @@ watch(
   }
 
   &__top {
+    position: relative;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     flex-direction: row;
     width: 100%;
 
@@ -126,6 +135,13 @@ watch(
 
     & > * {
       margin-right: -0.25rem;
+    }
+
+    &--title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
     }
 
     &--button {

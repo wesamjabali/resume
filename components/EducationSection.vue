@@ -1,6 +1,10 @@
 <template>
   <div>
-    <BaseModal :show="showModal" @close="showModal = false">
+    <BaseModal
+      :show="showModal"
+      :title="education.diploma.imgAlt"
+      @close="showModal = false"
+    >
       <div class="education-modal">
         <img :src="education.diploma.imgSrc" :alt="education.diploma.imgAlt" />
       </div>

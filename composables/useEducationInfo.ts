@@ -10,11 +10,11 @@ const useEducationInfo = () => {
     },
     info: [
       {
-        header: "Computer Science - Depaul University",
+        header: "DePaul University - View Diploma",
         description:
           "Graduated Summa Cum Laude at DePaul University, and created automation tools used by thousands of students and faculty to facilitate courses during the COVID-19 pandemic.",
-        footer: formatTechnologies(["3.94 GPA", "Computer Science"]),
-        left: "2017 - 2021",
+        footer: formatTechnologies(["3.94 GPA", "B.S.", "Computer Science"]),
+        left: "2021",
       },
     ],
   };
