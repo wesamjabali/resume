@@ -62,7 +62,7 @@ const floatAvatar = async () => {
     })`;
   }
 
-  clickCount.value += 10;
+  clickCount.value++;
   resetAvatarTimer = setTimeout(resetAvatar, 1500);
 };
 
