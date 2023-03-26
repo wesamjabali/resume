@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="print-hide">
     <div id="marker" class="marker" ref="marker">
       <div class="marker__hover-info" v-html="hoverMessage" />
       <img class="marker__image" :src="pinImgSrc" :alt="pinImgAlt" />
