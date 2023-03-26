@@ -1,12 +1,12 @@
 :root {
   --background-color: #000;
-  --background-color-secondary: rgba(255, 255, 255, 0.4);
+  --background-color-secondary: rgba(50, 50, 50, 0.8);
   --text-color: #fff;
   --text-color-dark: rgba(255, 255, 255, 0.64);
   --text-color-darker: rgba(255, 255, 255, 0.5);
   @media (prefers-color-scheme: light) {
     --background-color: #fff;
-    --background-color-secondary: rgba(0, 0, 0, 0.4);
+    --background-color-secondary: rgba(255, 255, 255, 0.8);
     --text-color: #000;
     --text-color-dark: rgba(0, 0, 0, 0.64);
     --text-color-darker: rgba(0, 0, 0, 0.5);

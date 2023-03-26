@@ -47,7 +47,7 @@ watch(
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--text-color-darker);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,6 +87,10 @@ watch(
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 0 solid var(--background-color-secondary);
+    border-width: 0 0.25rem 0.25rem 0.25rem;
+    border-radius: 0.25rem;
+    background-color: var(--background-color-secondary);
   }
 
   &__content {
@@ -99,12 +103,11 @@ watch(
     &-inner {
       overflow-y: auto;
       overflow-x: hidden;
-      box-shadow: 0 0.5rem 0 0.5rem var(--background-color-secondary);
-      width: 95vw;
+      width: 99vw;
       max-height: 85vh;
       @include above-mobile {
         max-width: 70vw;
-        max-height: 70vh;
+        max-height: 80vh;
       }
     }
   }
@@ -115,17 +118,13 @@ watch(
     flex-direction: row;
     width: 100%;
     background-color: var(--background-color-secondary);
-    border-width: 0 0.5rem 0 0.5rem;
-    border-style: solid;
-    border-color: transparent;
-    border-radius: 0.5rem 0.5rem 0 0;
 
     & > :last-child {
-      border-radius: 0 0.5rem 0 0;
+      border-radius: 0 0.25rem 0 0;
     }
 
     & > * {
-      margin-right: -0.5rem;
+      margin-right: -0.25rem;
     }
 
     &--button {
@@ -134,7 +133,7 @@ watch(
       padding: 1rem 2rem;
 
       @include above-mobile {
-        padding: 0.25rem 1.5rem;
+        padding: 0.5rem 1.5rem;
       }
 
       &:hover {
