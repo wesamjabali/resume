@@ -12,7 +12,7 @@
       </div>
       <div class="split-section--part-info">
         <span class="split-section--part-info__header">
-          <a :href="part.headerUrl">{{ part.header }}</a>
+          <a :href="part.headerUrl" target="_blank">{{ part.header }}</a>
         </span>
         <span
           v-if="part.description"
