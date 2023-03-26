@@ -33,14 +33,14 @@ const resetAvatar = () => {
   avatarFloatMs = 1200;
   avatar.value.style.transition = `all ${avatarFloatMs}ms ease`;
   avatar.value.style.transform = "unset";
+  avatar.value.style.animation = "unset";
 };
 
 let resetAvatarTimer = setTimeout(resetAvatar, 1600);
 
 const floatAvatar = async () => {
   if (!avatar.value) return;
-  avatar.value.style.animation = "unset";
-
+  avatar.value.style.animation = `rainbow 1s infinite`;
   clearTimeout(resetAvatarTimer);
 
   const y = Math.random() * (window.innerHeight - 196 - 98) + 98;
@@ -51,9 +51,18 @@ const floatAvatar = async () => {
     20;
 
   avatar.value.style.transform = `translate(${x}px, ${y}px)`;
-  avatar.value.style.transitionDuration = `${(avatarFloatMs /= 1.1)}ms`;
+  avatar.value.style.transitionDuration = `${Math.max(
+    (avatarFloatMs /= 1.1),
+    60
+  )}ms`;
 
-  clickCount.value++;
+  if (clickCount.value > 30) {
+    avatar.value.style.transform += ` scale(${
+      Math.random() * 0.5 + (1 - Math.min(clickCount.value, 80) / 100)
+    })`;
+  }
+
+  clickCount.value += 10;
   resetAvatarTimer = setTimeout(resetAvatar, 1500);
 };
 
@@ -89,6 +98,15 @@ onUnmounted(() => {
   50%,
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
   }
 }
 
