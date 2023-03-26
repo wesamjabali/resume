@@ -8,6 +8,7 @@
         :info="workExperience.info"
       />
       <BaseSplitSection :title="projects.title" :info="projects.info" />
+      <EducationSection />
       <BaseSplitSection
         class="print-hide"
         :title="links.title"

@@ -12,7 +12,13 @@
       </div>
       <div class="split-section--part-info">
         <span class="split-section--part-info__header">
-          <a :href="part.headerUrl" target="_blank">{{ part.header }}</a>
+          <component
+            :is="part.headerUrl ? 'a' : 'button'"
+            :href="part.headerUrl"
+            @click="part.headerUrl ? null : emit('headerClick')"
+            target="_blank"
+            >{{ part.header }}</component
+          >
         </span>
         <span
           v-if="part.description"
@@ -35,12 +41,14 @@ const props = defineProps<{
   title: string;
   info: {
     header: string;
-    headerUrl: string;
     left: string;
+    headerUrl?: string;
     description?: string;
     footer?: string;
   }[];
 }>();
+
+const emit = defineEmits(["headerClick"]);
 </script>
 
 <style lang="scss">

@@ -41,16 +41,6 @@ The results were presented to other scientists and financial supporters.`,
       startDate: "2019",
       endDate: "2020",
     },
-    {
-      company: "Depaul University",
-      headerUrl: "https://depaul.edu/",
-      position: "Student",
-      description:
-        "Graduated Summa Cum Laude at DePaul University, and created automation tools used by thousands of students and faculty to facilitate courses during the COVID-19 pandemic.",
-      technologies: ["3.94 GPA", "Computer Science"],
-      startDate: "2017",
-      endDate: "2021",
-    },
   ];
 
   const formattedJobs = jobs.map((job) => ({
