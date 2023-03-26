@@ -65,7 +65,7 @@ watch(
 
   &-enter-active,
   &-leave-active {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-out;
 
     .modal__inner {
       transition: inherit;
