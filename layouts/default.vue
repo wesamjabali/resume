@@ -22,7 +22,7 @@ const isTemplate = !useAboutInfo().description.includes("Wesam");
   display: flex;
   background-color: var(--background-color);
   flex-direction: column;
-  max-width: 32rem;
+  max-width: 34rem;
   margin: auto;
   padding: 2rem 1rem 3rem 1rem;
 
