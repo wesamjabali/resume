@@ -1,6 +1,6 @@
 <template>
   <BaseSection :title="aboutTitle">
-    <p>{{ aboutInfo }}</p>
+    <span v-html="aboutInfo" />
   </BaseSection>
 </template>
 
