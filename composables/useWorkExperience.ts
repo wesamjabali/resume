@@ -12,10 +12,21 @@ const useWorkExperience = (): SplitSectionProps => {
     endDate: string;
   }> = [
     {
+      company: "ALDI SÜD",
+      headerUrl: "https://www.aldi-sued.de/",
+      position: "Software Development Engineer III",
+      description:
+        "Building the future of ALDI's global digital experience, on an assignment in Düsseldorf, Germany.",
+      technologies: ["Vue", "Nuxt", "TypeScript", "SCSS", "Jest", "Express"],
+      startDate: "2023",
+      endDate: "present",
+    },
+    {
       company: "ALDI",
       headerUrl: "https://new.aldi.us/",
       position: "Software Development Engineer III",
-      description: "Building the future of ALDI's digital experience",
+      description:
+        "Building the future of ALDI's global digital experience, focusing on the US market.",
       technologies: ["Vue", "Nuxt", "TypeScript", "SCSS", "Jest", "Express"],
       startDate: "2021",
       endDate: "present",

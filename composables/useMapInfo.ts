@@ -1,14 +1,14 @@
 const useMapInfo = () => {
   return {
-    centerLongitude: -87.6298,
-    centerLatitude: 41.8981,
-    pinLongitude: -87.68,
-    pinLatitude: 41.88,
-    zoom: 11,
+    centerLatitude: 51.24729,
+    centerLongitude: 6.7435,
+    pinLatitude: 51.238,
+    pinLongitude: 6.7435,
+    zoom: 10,
     pinImgSrc:
       "https://github.com/wesamjabali/resume/blob/main/public/images/avatar.jpg?raw=true",
     pinImgAlt: "Wesam's avatar pin",
-    hoverMessage: "Chicago born and raised 👀",
+    hoverMessage: "Düsseldorf, Germany",
   };
 };
 
