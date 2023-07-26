@@ -1,32 +1,18 @@
 <template>
-  <Transition name="modal">
-    <div
-      v-if="props.show"
-      class="modal"
-      @click.self="emit('close')"
-      ref="modal"
-    >
-      <div class="modal__inner">
-        <div class="modal__top">
-          <div class="modal__top--title">
-            {{ props.title }}
-          </div>
-          <button
-            class="modal__top--button modal__top--button-close"
-            @click="emit('close')"
-            ref="closeButton"
-          >
-            <span>x</span>
-          </button>
-        </div>
-        <div class="modal__content">
-          <span class="modal__content-inner">
-            <slot />
-          </span>
-        </div>
+  <dialog class="modal" ref="modal" @click="onClickOverlay">
+    <div class="modal__header">
+      <div class="modal__header--title">
+        {{ props.title }}
       </div>
+      <button class="modal__header--button modal__header--button-close" @click="emit('close')" ref="closeButton">
+        <span>x</span>
+      </button>
     </div>
-  </Transition>
+
+    <div class="modal__content">
+      <slot name="content" />
+    </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">
@@ -41,157 +27,69 @@ const props = defineProps({
     default: "",
   },
 });
-const focusableElements =
-  'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-const modal = ref<HTMLElement | null>(null);
-const firstFocusableElement = computed(
-  () => modal.value?.querySelectorAll<HTMLElement>(focusableElements)[0]
-);
-
-const lastFocusableElement = computed(
-  () =>
-    modal.value?.querySelectorAll<HTMLElement>(focusableElements)[
-      modal.value?.querySelectorAll(focusableElements).length - 1
-    ]
-);
-
-const onTab = (e: KeyboardEvent) => {
-  if (e.key === "Tab") {
-    e.preventDefault();
-    if (e.shiftKey && document.activeElement === firstFocusableElement.value) {
-      lastFocusableElement.value?.focus();
-    } else if (document.activeElement === lastFocusableElement.value) {
-      firstFocusableElement.value?.focus();
-    } else {
-      firstFocusableElement.value?.focus();
-    }
-  }
-};
+const modal = ref<HTMLDialogElement | null>(null);
 
 watch(
   () => props.show,
   (shown) => {
     if (shown) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", onTab);
+      modal.value?.showModal();
     } else {
-      document.body.style.overflow = "auto";
-      window.removeEventListener("keydown", onTab);
+      modal.value?.close();
     }
   }
 );
+
+const onClickOverlay = (event: MouseEvent) => {
+  if (event.target === modal.value) {
+    emit("close");
+  }
+};
 </script>
 
 <style lang="scss">
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--modal-overlay-color);
-  backdrop-filter: blur(3px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  z-index: 100;
+  border: none;
+  padding: 0;
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  box-sizing: border-box;
 
-  @include above-mobile {
-    justify-content: center;
-  }
-
-  &-enter-active,
-  &-leave-active {
-    transition: all 0.2s ease-out;
-
-    .modal__inner {
-      transition: inherit;
-    }
-  }
-
-  &-enter-from,
-  &-leave-to {
-    opacity: 0;
-
-    .modal__inner {
-      opacity: 1;
-      transform: translateY(100vh);
-    }
-
-    @include above-mobile {
-      .modal__inner {
-        opacity: 1;
-        transform: unset;
-      }
-    }
-  }
-
-  &__inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 0 solid var(--background-color-secondary);
-    border-width: 0 0.25rem 0.25rem 0.25rem;
-    border-radius: 0.25rem;
-    background-color: var(--background-color-secondary);
-    & > * {
-      background-color: var(--background-color-secondary);
-    }
+  &::backdrop {
+    background-color: var(--modal-overlay-color);
+    backdrop-filter: blur(2px);
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem 1rem;
 
-    &-inner {
-      overflow-y: auto;
-      overflow-x: hidden;
-      width: 99vw;
-      max-height: 85vh;
-      @include above-mobile {
-        max-width: 70vw;
-        max-height: 80vh;
-      }
-    }
   }
 
-  &__top {
-    position: relative;
+  &__header {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    flex-direction: row;
-    width: 100%;
-
-    & > :last-child {
-      border-radius: 0 0.25rem 0 0;
-    }
-
-    & > * {
-      margin-right: -0.25rem;
-    }
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 3rem;
 
     &--title {
       position: absolute;
-      left: 0;
-      right: 0;
-      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     &--button {
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
-      padding: 1rem 2rem;
-      z-index: 101;
-
-      @include above-mobile {
-        padding: 0.5rem 1.5rem;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3rem;
+      width: 3rem;
 
       &:hover {
         text-decoration: none;
@@ -202,6 +100,7 @@ watch(
       }
 
       &-close {
+
         &:hover,
         &:focus {
           background-color: red;

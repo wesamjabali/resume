@@ -32,21 +32,24 @@ a,
 button {
   color: inherit;
   text-decoration: none;
+
   &:hover {
     cursor: pointer;
     text-decoration: underline;
   }
+
   &::after {
     content: " ↗";
   }
+
   @media print {
     &::after {
       content: "";
     }
   }
+
   &:focus {
-    outline: none;
-    border: 1px solid var(--text-highlight-color);
+    outline: 1px solid var(--text-highlight-color);
     border-radius: 0.2rem;
   }
 }

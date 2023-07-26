@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <BaseModal
-      :show="showModal"
-      :title="education.diploma.imgAlt"
-      @close="showModal = false"
-    >
+  <BaseModal
+    :show="showModal"
+    :title="education.diploma.imgAlt"
+    @close="showModal = false"
+  >
+    <template #content>
       <div class="education-modal">
         <img :src="education.diploma.imgSrc" :alt="education.diploma.imgAlt" />
       </div>
-    </BaseModal>
+    </template>
+  </BaseModal>
+  <div>
     <BaseSplitSection
       :title="education.title"
       :info="education.info"
@@ -28,12 +30,11 @@ const showModal = ref(false);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  height: 60vh;
 
   img {
     max-width: 100%;
-    max-height: 90%;
+    max-height: 100%;
     object-fit: contain;
   }
 }
